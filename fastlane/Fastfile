@@ -1,0 +1,21 @@
+
+default_platform(:ios)
+
+platform :ios do
+  desc "test lane for bitrise integration "
+  lane :bitrise do
+    gym(
+      project: "BitriseIntegration.xcodeproj",
+      configuration: "Debug",
+      scheme: "BitriseIntegration",
+      silent: true,
+      clean: true,
+      skip_archive: true,
+    )
+  end
+
+desc "run unit test"
+lane :tests do
+  scan(scheme: "BitriseIntegration")
+end
+end
