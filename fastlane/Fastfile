@@ -5,13 +5,15 @@ platform :ios do
   desc "test lane for bitrise integration "
   lane :bitrise_build do
     gym(
-      project: "BitriseIntegration.xcodeproj",
-      configuration: "Debug",
-      scheme: "BitriseIntegration",
-      silent: true,
-      clean: true,
-      skip_archive: true,
-    )
+    project: "BitriseIntegration.xcodeproj",
+    configuration: "Debug",
+    scheme: "BitriseIntegration",
+    silent: true,
+    clean: true,
+    skip_archive: true,
+    export_method: "development",
+    skip_codesigning: true   # Disable code signing for development builds
+  )
   end
 
 desc "run unit test"
