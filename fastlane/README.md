@@ -15,13 +15,13 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 ## iOS
 
-### ios bitrise
+### ios build
 
 ```sh
-[bundle exec] fastlane ios bitrise
+[bundle exec] fastlane ios build
 ```
 
-test lane for bitrise integration 
+build app
 
 ### ios tests
 
