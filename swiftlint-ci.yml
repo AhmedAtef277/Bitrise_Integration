@@ -1,0 +1,51 @@
+disabled_rules: # rule identifiers to exclude from linting
+  - line_length          # Disable line length warnings
+  - trailing_whitespace  # Disable trailing whitespace checks
+  - identifier_name      # Disable variable name checks
+
+opt_in_rules: # Some rules are opt-in
+  - empty_count         # Warns when using `array.count == 0` instead of `array.isEmpty`
+  - force_unwrapping    # Avoid force unwrapping
+  - discouraged_optional_boolean # Discourages using `Bool?` as it's confusing
+
+included: # Lint only these directories/files
+  - App
+  - Sources
+  - Tests
+
+excluded: # Exclude these directories/files from linting
+  - Pods
+  - Carthage
+  - fastlane
+  - Generated
+
+# Custom rule configurations
+line_length:
+  warning: 120        # Show a warning if lines exceed 120 characters
+  error: 150          # Show an error if lines exceed 150 characters
+  ignores_comments: true # Ignore line length for comments
+  ignores_interpolated_strings: true # Ignore line length for strings
+
+type_name:
+  min_length: 3      # Type names should be at least 3 characters long
+  max_length:        # Type names should not exceed 50 characters
+    warning: 50
+    error: 60
+
+identifier_name:
+  min_length:
+    error: 2         # Variable names should be at least 2 characters
+  max_length:
+    warning: 40      # Warning for variable names longer than 40 characters
+    error: 50        # Error for names longer than 50 characters
+
+function_body_length:
+  warning: 40        # Warn if a function body exceeds 40 lines
+  error: 80          # Error if a function body exceeds 80 lines
+  ignore_comments: true # Ignore comments when calculating function body length
+
+nesting:
+  type_level: 3      # Warn if nesting level exceeds 3
+  function_level: 2  # Warn if function nesting exceeds 2
+  statement_level: 5 # Warn if statement nesting exceeds 5
+

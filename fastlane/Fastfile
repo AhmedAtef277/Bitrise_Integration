@@ -3,9 +3,10 @@ default_platform(:ios)
 
 platform :ios do
 
-lane :build_and_test do
-  build
-  test
+lane :ci_pipeline do
+    build
+    test
+    lint
 end
 
   desc "test lane for bitrise integration "
@@ -27,6 +28,16 @@ lane :test do
   scan(
 	scheme: "BitriseIntegration",
 	device: "iPhone 15"
+)
+end
+
+lane :lint do
+  swiftlint(
+    mode: :lint,
+    config_file: "swiftlint-ci.yml",
+    ignore_exit_status: true,
+    quiet: true,
+    strict: true
 )
 end
 end
